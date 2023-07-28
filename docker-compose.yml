@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql
+    build:
+      context: mysql
+    image: platform/phishing:mysql_development
+    command: --sql_mode="" --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sort_buffer_size=512K
+    environment:
+      - MYSQL_USER=platform
+      - MYSQL_PASSWORD=platform_2023!
+      - MYSQL_ROOT_PASSWORD=platform_2023!
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./mysql/init/:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    restart: always
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mysqladmin',
+          'ping',
+          '-h',
+          'localhost',
+          '-u',
+          'root',
+          '-p$$MYSQL_ROOT_PASSWORD',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 10
+
+
+
+volumes:
+  mysql:
+    driver: local
+
+

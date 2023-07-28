@@ -1,0 +1,48 @@
+.error-journal {
+    border: 3px solid #ccc;
+    padding: 16px;
+    width: 100%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.error-journal button {
+    margin-bottom: 8px;
+    width: 30%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+h2,h1 {
+    text-align: center;
+}
+
+i{
+    font-size: 30px;
+    color: green;
+}
+
+.button_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+footer{
+    width: 100%;
+    background-color: #747bff;
+}
